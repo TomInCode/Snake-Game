@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Cor de fundo preto */
+    opacity: 0.5; /* Ajuste a opacidade conforme necessário */
+    z-index: -1; /* Coloca o pseudo-elemento no plano de fundo */
+}
+
+body img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Coloca a imagem no plano de fundo, atrás do pseudo-elemento */
+}
+
+canvas {
+    width: 400px; /* Defina o tamanho desejado para o canvas */
+    height: 400px;
+    border: 2px solid black; /* Adicione uma borda para visualização */
+    image-rendering: pixelated; /* Melhora a renderização dos pixels */
+    background-color: #111; /* Cor de fundo do canvas */
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.score--value {
+    font-weight: 700;
+    font-size: 3.5rem;
+    display: block;
+    margin-top: -10px;
+}
+
+.menu-screen {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.game-over {
+    text-transform: uppercase;
+    font-weight: 1000;
+    font-size: 3rem;
+    color: red;
+}
+
+.final-score {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.btn-play {
+    border: none;
+    border-radius: 100px;
+    padding: 10px 15px 10px 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Adicione estilos específicos para a versão mobile */
+@media screen and (max-width: 600px) {
+    canvas {
+        width: 100vw; /* Use toda a largura da tela */
+        height: 100vw; /* Faça a altura igual à largura para manter um quadrado */
+        max-width: 400px; /* Defina um máximo de 400px para garantir que não fique muito grande */
+        max-height: 400px; /* Mesmo para a altura */
+        margin-top: 20px; /* Adicione margem superior para espaço */
+    }
+}
