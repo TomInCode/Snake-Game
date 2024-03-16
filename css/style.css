@@ -1,3 +1,4 @@
+/* Estilos gerais */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 * {
@@ -95,7 +96,7 @@ canvas {
     cursor: pointer;
 }
 
-/* Adicione estilos específicos para a versão mobile */
+/* Estilos específicos para a versão mobile */
 @media screen and (max-width: 600px) {
     canvas {
         width: 100vw; /* Use toda a largura da tela */
@@ -103,5 +104,48 @@ canvas {
         max-width: 400px; /* Defina um máximo de 400px para garantir que não fique muito grande */
         max-height: 400px; /* Mesmo para a altura */
         margin-top: 20px; /* Adicione margem superior para espaço */
+    }
+
+    .mobile-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .d-pad {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+        background-color: rgba(255, 255, 255, 0.7);
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 5px;
+    }
+    
+    .control-button:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .horizontal-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+/* Oculta os botões de navegação em telas maiores */
+@media screen and (min-width: 600px) {
+    .mobile-controls {
+        display: none;
     }
 }

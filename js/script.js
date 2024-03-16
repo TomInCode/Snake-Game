@@ -208,3 +208,22 @@ buttonPlay.addEventListener("click", () => {
     snake = [initialPosition]
     gameLoop()
 })
+
+document.querySelectorAll('.control-button').forEach(button => {
+    button.addEventListener('click', () => {
+        if (!gameInProgress) return; // Ignora os cliques se o jogo não estiver em progresso
+
+        const buttonDirection = button.dataset.direction;
+
+        // Atualiza a direção da cobra de acordo com o botão pressionado
+        if (buttonDirection === 'up' && direction !== 'down') {
+            direction = 'up';
+        } else if (buttonDirection === 'down' && direction !== 'up') {
+            direction = 'down';
+        } else if (buttonDirection === 'left' && direction !== 'right') {
+            direction = 'left';
+        } else if (buttonDirection === 'right' && direction !== 'left') {
+            direction = 'right';
+        }
+    });
+});
